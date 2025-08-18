@@ -9,7 +9,6 @@ import { Divider } from '@mui/material';
 import { useAtom } from 'jotai';
 import { userObject } from "../state";
 import { AccountBalanceWallet, AccountCircleOutlined, Loop, Loyalty } from '@mui/icons-material';
-import userEvent from '@testing-library/user-event';
 
 export default function HomeCard() {
     const navigate = useNavigate()
@@ -30,7 +29,7 @@ export default function HomeCard() {
                 <div>
                     <Typography>Your Total Account Balance</Typography>
                     <Typography level="title-lg">
-                        Ksh {user.accountBalance}.00</Typography>
+                        Ksh {user?.accountBalance || 0}.00</Typography>
                 </div>
                 <Divider />
                 <CardContent orientation="horizontal">

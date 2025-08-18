@@ -20,7 +20,7 @@ export default function PricingCard(props) {
 
   const [currentPackage, setCurrentPackage] = useAtom(subscribedPackage)
   const validatePayments = () => {
-    navigate("/validate", { state: { index: props.index } })
+    navigate("/validate-payments", { state: { index: props.index } })
   }
 
   return (

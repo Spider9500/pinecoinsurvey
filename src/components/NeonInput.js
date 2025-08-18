@@ -1,52 +1,39 @@
 import React from 'react';
-import { TextField } from '@mui/material';
-import { neonStyles } from '../styles/authStyles';
+import { Input, FormControl, FormLabel } from '@mui/material';
 
 const NeonInput = ({ label, type = 'text', fullWidth = true, ...props }) => {
   return (
-    <TextField
-      label={label}
-      type={type}
-      fullWidth={fullWidth}
-      variant="outlined"
-      sx={{
-        ...neonStyles.neonInput,
-        marginBottom: 2,
-        '& .MuiOutlinedInput-root': {
-          '& fieldset': {
-            borderColor: '#00B140',
-            borderWidth: 2,
-          },
-          '&:hover fieldset': {
-            borderColor: '#00FF00',
-            borderWidth: 2,
-          },
-          '&.Mui-focused fieldset': {
-            borderColor: '#00FF00',
-            borderWidth: 2,
-            boxShadow: '0 0 15px rgba(0, 255, 0, 0.5)',
-          },
+    <FormControl fullWidth={fullWidth} sx={{ marginBottom: 2 }}>
+      <FormLabel sx={{ 
+        color: '#00B140',
+        '&.Mui-focused': {
+          color: '#00FF00',
         },
-        '& .MuiInputLabel-root': {
-          color: '#00B140',
-          '&.Mui-focused': {
-            color: '#00FF00',
-          },
-        },
-      }}
-      InputProps={{
-        style: {
+      }}>
+        {label}
+      </FormLabel>
+      <Input
+        type={type}
+        sx={{
           color: '#ffffff',
           backgroundColor: 'rgba(0, 0, 0, 0.3)',
-        },
-      }}
-      InputLabelProps={{
-        style: {
-          color: '#00B140',
-        },
-      }}
-      {...props}
-    />
+          border: '2px solid #00B140',
+          borderRadius: 1,
+          '&:hover': {
+            borderColor: '#00FF00',
+          },
+          '&.Mui-focused': {
+            borderColor: '#00FF00',
+            boxShadow: '0 0 15px rgba(0, 255, 0, 0.5)',
+          },
+          '& input': {
+            color: '#ffffff',
+            padding: '12px 14px',
+          },
+        }}
+        {...props}
+      />
+    </FormControl>
   );
 };
 

@@ -64,8 +64,8 @@ const Register = () => {
       setLoading(false);
       // In real app, this would be an API call
       setUser({
-        firstName: formData.firstName,
-        lastName: formData.lastName,
+        firstName: formData.fullName.split(' ')[0] || '',
+        lastName: formData.fullName.split(' ').slice(1).join(' ') || '',
         email: formData.email,
         education: '',
         password: formData.password,

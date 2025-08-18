@@ -25,8 +25,10 @@ function App() {
         <Container maxWidth="sm">
           <MessageDisplay />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<WelcomeNew />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/account" element={<Profile />} />
             <Route path="/referrals" element={<Referrals />} />
             <Route path="/packages" element={<Packages />} />
             <Route path="/validate-payments" element={<ValidatePayments />} />
