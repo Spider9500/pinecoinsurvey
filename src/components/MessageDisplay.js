@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Typography, Box } from '@mui/material';
-import { useAuth } from '../contexts/AuthContext';
+import { useAtom } from 'jotai';
+import { userLoggedIn, userObject } from '../state';
 
 const messages = [
   {
@@ -109,7 +110,8 @@ export default function MessageDisplay() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const [isFading, setIsFading] = useState(false);
-  const { user } = useAuth();
+  const [loggedIn] = useAtom(userLoggedIn);
+  const [user] = useAtom(userObject);
 
   useEffect(() => {
     let timeoutId;
@@ -121,7 +123,7 @@ export default function MessageDisplay() {
       const restrictedPaths = ['/', '/login', '/register', '/referralCode'];
       const isRestrictedPage = restrictedPaths.includes(currentPath);
       
-      if (isRestrictedPage || !user) {
+      if (isRestrictedPage || !loggedIn) {
         setIsVisible(false);
         return;
       }
@@ -187,7 +189,7 @@ export default function MessageDisplay() {
 
   const currentMessage = messages[currentIndex];
 
-  if (!user) return null;
+  if (!loggedIn) return null;
 
   return (
     <Box sx={{ 
