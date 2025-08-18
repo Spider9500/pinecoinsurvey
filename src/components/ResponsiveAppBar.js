@@ -52,34 +52,44 @@ function ResponsiveAppBar() {
               <Box
                 component="img"
                 sx={{
-                  height: 80,
-                  width: 80,
-                  maxHeight: { xs: 80, md: 80 },
-                  maxWidth: { xs: 80, md: 80 },
+                  height: { xs: 40, md: 80 },
+                  width: { xs: 40, md: 80 },
                   borderRadius: '50%',
-                  mr: 1,
-                  display: { xs: 'none', md: 'block' }
+                  mr: { xs: 1, md: 1 },
+                  display: 'block'
                 }}
                 alt=""
                 src={logo}
               />
-              <span style={{ fontFamily: "'Brush Script MT', cursive, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif", fontWeight: 'bold', fontSize: '2rem', color: '#00FF00', display: 'inline-block', marginTop: '0.4rem' }}>
+              <Typography
+                variant="h6"
+                component="span"
+                sx={{
+                  fontFamily: "'Brush Script MT', cursive, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+                  fontWeight: 'bold',
+                  fontSize: { xs: '1.5rem', md: '2rem' },
+                  color: '#00FF00',
+                  display: 'inline-block',
+                  mt: { xs: 0.2, md: 0.4 }
+                }}
+              >
                 Pinecoin
-              </span>
+              </Typography>
             </Box>
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, flexGrow: 1, justifyContent: 'space-around', ml: 3 }}>
+            <Box sx={{ display: { xs: 'none', md: 'flex' }, flexGrow: 1, justifyContent: 'space-around', ml: { xs: 1, md: 3 } }}>
               {pages.map((page) => (
                 <Button
                   key={page}
                   onClick={() => handleOpenMenu(page)}
                   sx={{ 
-                    my: 2, 
+                    my: { xs: 1, md: 2 }, 
                     color: 'white', 
                     backgroundColor: '#00B140',
                     display: 'block',
                     textShadow: 'none',
-                    fontSize: '1.25rem',
+                    fontSize: { xs: '1rem', md: '1.25rem' },
                     fontFamily: "'Arial', 'Helvetica', sans-serif",
+                    px: { xs: 1, md: 2 },
                     '&:hover': {
                       backgroundColor: '#009933',
                       color: 'white',

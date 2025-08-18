@@ -38,7 +38,7 @@ export default function ProfileCard() {
         navigate("/packages")
     }
     const Addpayments = () => {
-        navigate("/payments")
+        navigate("/add-payments")
     }
     const viewRefarrals = () => {
         navigate("/referrals")

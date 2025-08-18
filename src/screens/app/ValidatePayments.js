@@ -82,18 +82,23 @@ export default function ValidatePayments() {
                       onSubmit={(event) => {
                         event.preventDefault();
                         const data = new FormData(event.currentTarget);
-                        var mpesaMessage = data.get('message')
+                        const mpesaMessage = data.get('message')?.trim();
                         
-                        // Only check if the message contains the till name "FINTECH HUB VENTURES 3"
+                        // Validate empty message
+                        if (!mpesaMessage) {
+                          setMessageError(true);
+                          return;
+                        }
+                        
+                        // Check if the message contains the till name "FINTECH HUB VENTURES 3"
                         if (!mpesaMessage.includes("FINTECH HUB VENTURES 3")) {
-                          setMessageError(true)
-                          return
+                          setMessageError(true);
+                          return;
                         } else {
-                          setMessageError(false)
+                          setMessageError(false);
                         }
 
-
-                        setProgress(true)
+                        setProgress(true);
                         setTimeout(() => {
                           setCurrentPackage((prev) => ({
                             ...prev,
@@ -104,15 +109,11 @@ export default function ValidatePayments() {
                             minimumWithdrawal: packageItem.minimumWithdrawal,
                             earningPerSurvey: packageItem.earningPerSurvey,
                             price: packageItem.price
-                          }))
-                          setMpesaCodeList((prev) => ([...prev, mpesaMessage.split(' ')[0]]))
-                          setProgress(false)
-                          navigate("/home")
-                        }, 5000)
-
-                        // console.log("Message splited", messageTillName[2].includes(packageItem.price))
-                        // console.log(tillNameList[0] == messageTillName[5])
-                        // // setOpen(false);
+                          }));
+                          setMpesaCodeList((prev) => ([...prev, mpesaMessage.split(' ')[0]]));
+                          setProgress(false);
+                          navigate("/home");
+                        }, 5000);
                       }}
                     >
                       <Stack spacing={2}>
@@ -121,7 +122,8 @@ export default function ValidatePayments() {
                           name="message"
                           placeholder="Paste M-PESA message here"
                           error={messageError}
-                          helperText={messageError ? "Valid M-PESA message required" : ""}
+                          helperText={messageError ? "Please paste a valid M-PESA message containing 'FINTECH HUB VENTURES 3'" : ""}
+                          required
                         />
                         <Button style={{ backgroundColor: '#00CC71', borderRadius: "5em" }} type="submit">Verify</Button>
                       </Stack>
