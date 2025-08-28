@@ -96,6 +96,47 @@ const messages = [
   },
   {
     type: 'Withdrawal',
+    message: '2547XX***782 has withdrawn Ksh 8,000. New balance: Ksh 320. Ref: TX8000AB.',
+    color: 'warning'
+  },
+  {
+    type: 'Disbursement',
+    message: 'Ksh 8,000 has been successfully sent to 2547XX***901. Ref: TX8000AB. Fee: Ksh 25.',
+    color: 'success'
+  },
+  {
+    type: 'Withdrawal',
+    message: '2547XX***782 has withdrawn Ksh 10,000. New balance: Ksh 400. Ref: TX10000CD.',
+    color: 'warning'
+  },
+  {
+    type: 'Disbursement',
+    message: 'Ksh 10,000 has been successfully sent to 2547XX***901. Ref: TX10000CD. Fee: Ksh 25.',
+    "color": 'success'
+  },
+  {
+   type: 'Withdrawal',
+    message: '2547XX***782 has withdrawn Ksh 12,500. New balance: Ksh 500. Ref: TX12500EF.',
+    color: 'warning'
+  },
+  {
+    type: 'Disbursement',
+    message: 'Ksh 12,500 has been successfully sent to 2547XX***901. Ref: TX12500EF. Fee: Ksh 25.',
+    color: 'success'
+  },
+  {
+    type: 'Withdrawal',
+    message: '2547XX***782 has withdrawn Ksh 15,000. New balance: Ksh 600. Ref: TX15000GH.',
+    color: 'warning'
+  },
+  {
+    type: 'Disbursement',
+    message: 'Ksh 15,000 has been successfully sent to 2547XX***901. Ref: TX15000GH. Fee: Ksh 25.',
+    color: 'success'
+  },
+
+  {
+    type: 'Withdrawal',
     message: '2547XX***012 has withdrawn Ksh 3,000. New balance: Ksh 170. Ref: TX0122ST.',
     color: 'warning'
   },
